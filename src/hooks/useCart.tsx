@@ -47,7 +47,9 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       const productAlreadyAdd = cart.find(product => product.id === productId);
       
       if(productAlreadyAdd) {
+        // adicionar no carrinho
 
+        // debitar do stock
       } else {
 
       }
