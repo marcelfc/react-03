@@ -34,7 +34,23 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   const addProduct = async (productId: number) => {
     try {
-      // TODO
+      // verificar se ainda possui estoque
+
+      const stockToProduct = await api.get(`stock?id=${productId}`);
+
+      if(stockToProduct.data[0].amount === 0) {
+        toast.error('Quantidade solicitada fora de estoque');
+      }
+
+
+      // verificar se já está no carrinho
+      const productAlreadyAdd = cart.find(product => product.id === productId);
+      
+      if(productAlreadyAdd) {
+
+      } else {
+
+      }
     } catch {
       // TODO
     }
